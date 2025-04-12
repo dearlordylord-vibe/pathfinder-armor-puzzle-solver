@@ -59,13 +59,13 @@ This project is configured for easy deployment to Vercel:
 5. Click "Deploy"
 
 The configuration is handled by the `vercel.json` file at the root of the project, which sets up:
-- Build command: `pnpm build:frontend`
+- Build command: `node build.js` (custom build script that builds all packages in the correct order)
 - Output directory: `apps/frontend/dist` 
 - Install command: `pnpm install`
 
-No additional configuration is needed as the monorepo structure is properly set up with pnpm workspaces.
+The custom build script ensures that:
+1. The solver package is built first
+2. The state package (which depends on solver) is built next
+3. The frontend app (which depends on both) is built last
 
-If you encounter any issues with the Vercel deployment, ensure that:
-1. The project is using pnpm workspaces correctly
-2. All package dependencies are properly linked
-3. The build script specifically targets the frontend app
+This approach guarantees that all dependencies are properly compiled before they're needed in the build process.

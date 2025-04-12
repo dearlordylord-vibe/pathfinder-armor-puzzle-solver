@@ -10,5 +10,9 @@ export default defineConfig({
       '@app/solver': resolve(__dirname, '../../packages/solver/src/index.ts'),
       '@app/state': resolve(__dirname, '../../packages/state/src/index.ts')
     }
+  },
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true
   }
 })

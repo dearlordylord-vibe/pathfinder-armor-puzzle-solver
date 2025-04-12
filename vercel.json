@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm build:frontend",
+  "buildCommand": "node build.js",
   "outputDirectory": "apps/frontend/dist",
   "installCommand": "pnpm install",
   "framework": "vite"
