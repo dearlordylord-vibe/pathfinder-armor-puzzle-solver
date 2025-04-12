@@ -45,3 +45,22 @@ The game consists of 6 boolean values (tiles), each with associated "moves" that
 ## Solver
 
 The solver library uses breadth-first search to find optimal solutions to any game configuration.
+
+## Deployment
+
+### Vercel
+
+This project is configured for easy deployment to Vercel:
+
+1. Push your code to a GitHub repository
+2. Go to [Vercel](https://vercel.com) and create a new project
+3. Import your repository
+4. Vercel will automatically detect the project configuration
+5. Click "Deploy"
+
+The configuration is handled by the `vercel.json` file at the root of the project, which sets up:
+- Build command: `pnpm build`
+- Output directory: `apps/frontend/dist` 
+- Install command: `pnpm install`
+
+No additional configuration is needed as the monorepo structure is properly set up with pnpm workspaces.

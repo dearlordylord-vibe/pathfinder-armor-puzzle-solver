@@ -16,9 +16,7 @@ export const Controls = ({
   gameState,
   setCustomGameState,
   resetGame,
-  solutionReached,
-  showSolution,
-  phase
+  solutionReached
 }: ControlsProps) => {
   // State for custom setup mode
   const [isCustomSetupMode, setIsCustomSetupMode] = useState(false);

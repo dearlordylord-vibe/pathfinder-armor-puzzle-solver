@@ -98,7 +98,7 @@ export class GameManager {
         }
         else {
             // Default to initial state from constructor
-            this._gameState = [true, true, true, true, false, false];
+            this._gameState = [false, true, false, true, false, true];
         }
         this._moveHistory = []; // Reset move history
         this._phase = GamePhase.Initial; // Reset phase

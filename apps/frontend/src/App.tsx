@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { GameBoard } from './components/GameBoard'
 import { Controls } from './components/Controls'
-import { GameState, Move, PossibleMoves } from '@app/solver'
+import { GameState, PossibleMoves } from '@app/solver'
 import { GameManager, GamePhase } from '@app/state'
 
 // Define the initial game state with 6 booleans - custom configuration
@@ -23,7 +23,7 @@ const gameManager = new GameManager(initialGameState, possibleMoves);
 
 function App() {
   // State to trigger renders when game state changes
-  const [gameStateVersion, setGameStateVersion] = useState(0);
+  const [, setGameStateVersion] = useState(0);
   const [showSolution, setShowSolution] = useState(false);
   
   // Subscribe to game state changes
