@@ -9,10 +9,9 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "pnpm --filter @app/solver build && pnpm --filter @app/state build && pnpm --filter frontend build",
+    "build": "pnpm --filter @app/solver build && pnpm --filter @app/state build && pnpm --filter frontend build && mkdir -p public && cp -r apps/frontend/dist/* public/",
     "dev:frontend": "pnpm --filter frontend dev",
-    "test": "pnpm -r test",
-    "postbuild": "mkdir -p public && cp -r apps/frontend/dist/* public/"
+    "test": "pnpm -r test"
   },
   "devDependencies": {
     "@types/node": "^20.11.24",
