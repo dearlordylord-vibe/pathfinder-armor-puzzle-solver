@@ -55,17 +55,14 @@ The solver library uses breadth-first search to find optimal solutions to any ga
 
 ### Vercel Deployment Instructions
 
-**Important**: This project requires specific Vercel configuration due to its monorepo structure.
+This project is ready for Vercel deployment. Just push to GitHub and deploy:
 
 1. Push your code to a GitHub repository
 2. Go to [Vercel](https://vercel.com) and create a new project
 3. Import your repository
-4. In the project settings, configure the following:
-   - **Framework Preset**: Other
-   - **Build Command**: `cd apps/frontend && pnpm build`
-   - **Output Directory**: `apps/frontend/dist`
-   - **Install Command**: `pnpm install`
-5. Click "Deploy"
+4. Click "Deploy"
+
+The postbuild script automatically copies the built frontend to the `public` directory, which Vercel recognizes as the standard output directory.
 
 ### Docker
 
