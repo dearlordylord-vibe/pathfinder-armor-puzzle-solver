@@ -55,17 +55,29 @@ This project is configured for easy deployment to Vercel:
 1. Push your code to a GitHub repository
 2. Go to [Vercel](https://vercel.com) and create a new project
 3. Import your repository
-4. Vercel will automatically detect the project configuration
+4. Configure the project with the following settings:
+   - Build Command: `npm run build` (this will use the deploy.sh script)
+   - Output Directory: `public`
 5. Click "Deploy"
 
-The deployment is configured to work optimally with Vercel:
+The deployment process uses a custom deploy.sh script that:
+1. Builds each package in the correct dependency order
+2. Creates a public directory with the frontend app's build output
+3. Places all static assets where Vercel expects to find them
 
-1. The build script in package.json handles the entire build process:
-   - Builds the solver package first
-   - Builds the state package next (which depends on solver)
-   - Builds the frontend app last (which depends on both)
-   - Copies the frontend build output to the root directory for Vercel to find
+### Docker
 
-2. The vercel.json file handles SPA routing with a simple rewrite rule.
+This project also includes a Dockerfile for containerization:
 
-This ensures that the build output is placed where Vercel expects to find it, and that client-side routing works correctly.
+```bash
+# Build the Docker image
+docker build -t pathfinder-puzzle .
+
+# Run the container
+docker run -p 8080:80 pathfinder-puzzle
+```
+
+The Docker build process:
+1. Uses a multi-stage build approach
+2. Builds all packages in the correct order
+3. Serves the app using Nginx

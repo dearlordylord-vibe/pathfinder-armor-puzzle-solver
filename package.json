@@ -9,7 +9,7 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "pnpm --filter @app/solver build && pnpm --filter @app/state build && pnpm --filter frontend build && cp -r apps/frontend/dist .",
+    "build": "sh ./deploy.sh",
     "dev:frontend": "pnpm --filter frontend dev",
     "test": "pnpm -r test"
   },
