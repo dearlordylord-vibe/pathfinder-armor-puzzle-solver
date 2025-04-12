@@ -65,19 +65,3 @@ This project is set up for Vercel deployment:
 
 The build process will build all workspace packages and copy the frontend to the root dist directory.
 
-### Docker
-
-This project also includes a Dockerfile for containerization:
-
-```bash
-# Build the Docker image
-docker build -t pathfinder-puzzle .
-
-# Run the container
-docker run -p 8080:80 pathfinder-puzzle
-```
-
-The Docker build process:
-1. Uses a multi-stage build approach
-2. Builds all packages in the correct order
-3. Serves the app using Nginx
