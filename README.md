@@ -9,6 +9,7 @@ A TypeScript monorepo using pnpm workspaces with a solver library and React fron
 ## Project Structure
 
 - `packages/solver`: Core solver library
+- `packages/state`: State management library
 - `apps/frontend`: React frontend application
 
 ## Setup
@@ -27,6 +28,10 @@ pnpm install
 ### Solver Library
 - `pnpm --filter @app/solver build` - Build the solver library
 - `pnpm --filter @app/solver test` - Run the solver library tests
+
+### State Management
+- `pnpm --filter @app/state build` - Build the state management library
+- `pnpm --filter @app/state test` - Run the state management tests
 
 ### Frontend
 - `pnpm --filter frontend dev` - Start the frontend development server
@@ -48,22 +53,19 @@ The solver library uses breadth-first search to find optimal solutions to any ga
 
 ## Deployment
 
-### Vercel
+### Vercel Deployment Instructions
 
-This project is configured for easy deployment to Vercel:
+**Important**: This project requires specific Vercel configuration due to its monorepo structure.
 
 1. Push your code to a GitHub repository
 2. Go to [Vercel](https://vercel.com) and create a new project
 3. Import your repository
-4. Configure the project with the following settings:
-   - Build Command: `npm run build` (this will use the deploy.sh script)
-   - Output Directory: `public`
+4. In the project settings, configure the following:
+   - **Framework Preset**: Other
+   - **Build Command**: `cd apps/frontend && pnpm build`
+   - **Output Directory**: `apps/frontend/dist`
+   - **Install Command**: `pnpm install`
 5. Click "Deploy"
-
-The deployment process uses a custom deploy.sh script that:
-1. Builds each package in the correct dependency order
-2. Creates a public directory with the frontend app's build output
-3. Places all static assets where Vercel expects to find them
 
 ### Docker
 
