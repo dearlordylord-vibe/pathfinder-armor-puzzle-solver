@@ -59,8 +59,13 @@ This project is configured for easy deployment to Vercel:
 5. Click "Deploy"
 
 The configuration is handled by the `vercel.json` file at the root of the project, which sets up:
-- Build command: `pnpm build`
+- Build command: `pnpm build:frontend`
 - Output directory: `apps/frontend/dist` 
 - Install command: `pnpm install`
 
 No additional configuration is needed as the monorepo structure is properly set up with pnpm workspaces.
+
+If you encounter any issues with the Vercel deployment, ensure that:
+1. The project is using pnpm workspaces correctly
+2. All package dependencies are properly linked
+3. The build script specifically targets the frontend app

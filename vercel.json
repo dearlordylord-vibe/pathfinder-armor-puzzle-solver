@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm build",
+  "buildCommand": "pnpm build:frontend",
   "outputDirectory": "apps/frontend/dist",
   "installCommand": "pnpm install",
   "framework": "vite"
