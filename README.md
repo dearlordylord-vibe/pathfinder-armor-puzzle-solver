@@ -55,14 +55,15 @@ The solver library uses breadth-first search to find optimal solutions to any ga
 
 ### Vercel Deployment Instructions
 
-This project is ready for Vercel deployment. Just push to GitHub and deploy:
+This project is set up for Vercel deployment:
 
 1. Push your code to a GitHub repository
 2. Go to [Vercel](https://vercel.com) and create a new project
-3. Import your repository
-4. Click "Deploy"
+3. Import your repository 
+4. Use the default settings - everything is configured in vercel.json
+5. Click "Deploy"
 
-The postbuild script automatically copies the built frontend to the `public` directory, which Vercel recognizes as the standard output directory.
+The build process will build all workspace packages and copy the frontend to the root dist directory.
 
 ### Docker
 
