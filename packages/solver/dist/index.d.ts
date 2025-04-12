@@ -1,0 +1,11 @@
+export type GameState = boolean[];
+export type Move = number[];
+export type PossibleMoves = Move[];
+export type Solution = number[];
+export type Solutions = [Solution, Solution];
+export declare const applyMove: (state: GameState, move: Move) => GameState;
+export declare const isAllSame: (state: GameState) => boolean;
+export declare const isAllTrue: (state: GameState) => boolean;
+export declare const isAllFalse: (state: GameState) => boolean;
+export declare const findPath: (initialState: GameState, possibleMoves: PossibleMoves, isTargetState: (state: GameState) => boolean) => Solution;
+export declare const solution: (state: GameState, possibleMoves: PossibleMoves) => Solutions;
