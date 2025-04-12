@@ -58,14 +58,14 @@ This project is configured for easy deployment to Vercel:
 4. Vercel will automatically detect the project configuration
 5. Click "Deploy"
 
-The configuration is handled by the `vercel.json` file at the root of the project, which sets up:
-- Build command: `node build.js` (custom build script that builds all packages in the correct order)
-- Output directory: `apps/frontend/dist` 
-- Install command: `pnpm install`
+The deployment is configured to work optimally with Vercel:
 
-The custom build script ensures that:
-1. The solver package is built first
-2. The state package (which depends on solver) is built next
-3. The frontend app (which depends on both) is built last
+1. The build script in package.json handles the entire build process:
+   - Builds the solver package first
+   - Builds the state package next (which depends on solver)
+   - Builds the frontend app last (which depends on both)
+   - Copies the frontend build output to the root directory for Vercel to find
 
-This approach guarantees that all dependencies are properly compiled before they're needed in the build process.
+2. The vercel.json file handles SPA routing with a simple rewrite rule.
+
+This ensures that the build output is placed where Vercel expects to find it, and that client-side routing works correctly.
